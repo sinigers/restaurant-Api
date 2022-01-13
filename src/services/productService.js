@@ -1,6 +1,7 @@
 const Product = require("../models/Product");
 
-exports.getAll = () => Product.find().sort({ createdAt: "desc" });
+// exports.getAll = () => Product.find().sort({ createdAt: "desc" });
+exports.getAll = () => Product.find().lean();
 
 exports.getOne = (id) => Product.findById(id);
 

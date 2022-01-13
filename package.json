@@ -22,7 +22,8 @@
     "util": "^0.12.4",
     "validator": "^13.7.0",
     "vercel": "^23.1.2",
-    "verify": "^0.1.2"
+    "verify": "^0.1.2",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

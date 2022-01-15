@@ -40,11 +40,11 @@ let productSchema = new mongoose.Schema(
     },
     imageURL: {
       type: String,
-      required: false,
-      validate: validator.isURL
+      required: false
     },
     priceSale: {
-      type: Number
+      type: Number,
+      default: 0
     },
     owner: {
       type: mongoose.Types.ObjectId,

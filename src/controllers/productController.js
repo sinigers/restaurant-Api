@@ -56,7 +56,7 @@ router.delete("/:productId/delete", auth, async (req, res, next) => {
   }
 });
 
-router.post("/create", auth, async (req, res, next) => {
+router.post("/create", async (req, res) => {
   // const creator = req.user._id;
 
   const productData = {

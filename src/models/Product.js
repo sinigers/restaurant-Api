@@ -16,20 +16,6 @@ let productSchema = new mongoose.Schema(
     },
     alergens: {
       type: String,
-      enum: [
-        "gl",
-        "ml",
-        "eg",
-        "ph",
-        "pn",
-        "ms",
-        "cr",
-        "ce",
-        "se",
-        "lp",
-        "mll",
-        "so2"
-      ],
       required: false
     },
     quantity: {
@@ -42,30 +28,10 @@ let productSchema = new mongoose.Schema(
     },
     unit: {
       type: String,
-      enum: ["g", "kg", "ml", "l", "psc", "psc/g", "psc/kg"],
       required: true
     },
     type: {
       type: String,
-      enum: [
-        "Breakfast",
-        "Preorder",
-        "Starters",
-        "Soups",
-        "Salads",
-        "BBQ",
-        "Main with Meat",
-        "Garnishes",
-        "Bread",
-        "Main without Meat",
-        "Jam",
-        "Non Alcoholic",
-        "Brandy",
-        "Wiskey",
-        "Hot Drinks",
-        "Beer",
-        "Other"
-      ],
       required: true
     },
     price: {

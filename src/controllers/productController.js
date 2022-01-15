@@ -4,7 +4,7 @@ const router = require("express").Router();
 const productService = require("../services/productService");
 const { auth } = require("../middlewares/authMiddleware");
 
-router.get("/all", async (req, res, next) => {
+router.get("/products", async (req, res, next) => {
   try {
     const products = await productService.getAll();
     res.json(products);

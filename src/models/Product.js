@@ -23,7 +23,7 @@ let productSchema = new mongoose.Schema(
       default: 1
     },
     weight: {
-      type: Number,
+      type: String,
       required: true
     },
     unit: {

@@ -39,20 +39,14 @@ router.patch("/:productId/edit", auth, async (req, res, next) => {
   }
 });
 
-router.delete("/:productId/delete", auth, async (req, res, next) => {
+router.delete("/:productId/delete", async (req, res) => {
   try {
     const product = await productService.getOne(req.params.productId);
-    if (product === null) {
-      throw { message: "This product is not exist in data base!" };
-    }
-    if (product.creator.toJSON() !== req.user._id.toJSON()) {
-      throw { message: "You are not authorized to delete this product!" };
-    }
 
     await productService.delete(req.params.productId);
     res.status(200).json({ message: "Product is successfully deleted" });
   } catch (error) {
-    next(error);
+    console.log(error);
   }
 });
 

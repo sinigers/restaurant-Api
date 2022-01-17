@@ -41,12 +41,10 @@ router.patch("/:productId/edit", auth, async (req, res, next) => {
 
 router.delete("/:productId/delete", async (req, res) => {
   try {
-    const product = await productService.getOne(req.params.productId);
-
-    await productService.delete(req.params.productId);
-    res.status(200).json({ message: "Product is successfully deleted" });
+    let deleted = await productService.delete(req.params.productId);
+    res.send(deleted);
   } catch (error) {
-    console.log(error);
+    res.send(error);
   }
 });
 

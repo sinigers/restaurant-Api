@@ -3,11 +3,11 @@ const Product = require("../models/Product");
 // exports.getAll = () => Product.find().sort({ createdAt: "desc" });
 exports.getAll = () => Product.find().lean();
 
-exports.getOne = (id) => Product.findById(id);
+exports.getOne = (id) => Product.findById(id).lean();
 
-exports.update = (id, productData) =>
-  Product.findByIdAndUpdate(id, productData);
+exports.updateOne = (productId, productData) =>
+  Product.findByIdAndUpdate(productId, productData);
 
-exports.delete = (id) => Product.findByIdAndDelete(id);
+exports.delete = (productId) => Product.findByIdAndDelete(productId);
 
 exports.create = (productData) => Product.create(productData);

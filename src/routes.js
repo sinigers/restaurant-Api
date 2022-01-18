@@ -1,15 +1,11 @@
-const express = require("express");
+const router = require("express").Router();
 
-const authController = require("./controllers/authController");
 const productController = require("./controllers/productController");
-
-const router = express.Router();
+// const authController = require('./controllers/authController');
+// const userController = require('./controllers/userController');
 
 router.use("/", productController);
-router.use("/auth", authController);
-// router.use('*', (req, res) => {
-//     res.status(404).render('404');
-// });
-router.use("/mobile/product", productController);
+// router.use('/auth', authController);
+// router.use('/users', userController);
 
 module.exports = router;

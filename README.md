@@ -1,5 +1,6 @@
 # restaurant-Api
 
+This is MERN stack
 api: server side(express server with mongoDb).
 
 How to start:

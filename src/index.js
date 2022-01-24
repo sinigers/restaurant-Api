@@ -3,10 +3,19 @@ const { PORT } = require("./config/constants");
 const routes = require("./routes");
 const { initDatabase } = require("./config/databaseConfig");
 const expressConfig = require("./config/expressConfig");
+const cors = require("cors");
+const url = "https://x04qj.csb.app";
 
 const app = express();
 
 expressConfig(app);
+
+app.use(
+  cors({
+    origin: url,
+    optionsSuccessStatus: 200
+  })
+);
 
 app.use(routes);
 app.use((err, req, res, next) => {

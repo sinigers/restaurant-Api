@@ -22,23 +22,22 @@ router.get("/:productId", async (req, res, next) => {
   }
 });
 
-router.get("/:productId/edit", async (req, res) => {
-  try {
-    const product = await productService.getOne(req.params.productId);
-
-    await productService.updateOne(req.params.productId, req.body);
-    res
-      .status(200)
-      .json({ message: `Product ${product.title} is successfully updated` });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
 router.get("/:productId/delete", async (req, res) => {
   try {
     let deleted = await productService.delete(req.params.productId);
     res.send(deleted);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.post("/:productId/edit", async (req, res) => {
+  try {
+    let product = await productService.updateOne(
+      req.params.productId,
+      req.body
+    );
+    res.send(product);
   } catch (error) {
     res.send(error);
   }

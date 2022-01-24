@@ -22,20 +22,16 @@ router.get("/:productId", async (req, res, next) => {
   }
 });
 
-router.patch("/:productId/edit", auth, async (req, res, next) => {
+router.get("/:productId/edit", async (req, res) => {
   try {
     const product = await productService.getOne(req.params.productId);
 
-    if (product.creator.toJSON() !== req.user._id.toJSON()) {
-      throw { message: "You are not authorized to edit this product!" };
-    }
-
-    await productService.update(req.params.productId, req.body);
+    await productService.updateOne(req.params.productId, req.body);
     res
       .status(200)
       .json({ message: `Product ${product.title} is successfully updated` });
   } catch (error) {
-    next(error);
+    console.log(error);
   }
 });
 

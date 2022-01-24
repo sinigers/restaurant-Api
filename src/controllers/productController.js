@@ -33,11 +33,11 @@ router.get("/:productId/delete", async (req, res) => {
 
 router.post("/:productId/edit", async (req, res) => {
   try {
-    let product = await productService.updateOne(
+    let productData = await productService.updateOne(
       req.params.productId,
       req.body
     );
-    res.send(product);
+    res.send(productData);
   } catch (error) {
     res.send(error);
   }

@@ -11,7 +11,7 @@ let productSchema = new mongoose.Schema(
     },
     body: {
       type: String,
-      required: true,
+      required: false,
       minlength: 2
     },
     alergens: {
